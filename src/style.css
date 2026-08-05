@@ -1,0 +1,87 @@
+/* ==========================================================================
+   MCubeGlobal - DIGITAL GROWTH AGENCY
+   High-Contrast Typographic System with 50% Medium Normal Font Weight
+   ========================================================================== */
+
+:root {
+  /* Official JPMorgan Chase Palette Tokens */
+  --jpm-dark: #111827;
+  --jpm-navy: #0B192C;
+  --jpm-blue: #00529B;
+  --jpm-softblue: #9BCBEB;
+  --jpm-softblue-hover: #82BCE0;
+  --jpm-brown: #8C5229;
+  --jpm-brown-light: #A06334;
+
+  /* Typography Stack */
+  --font-display: "Mofista", "Cinzel", "Playfair Display", "Judson", serif;
+  --font-serif: "Judson", Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", system-ui, "Noto Sans KR", "Open Sans", sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* RESET & BASE STYLES */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FFFFFF;
+  color: #111111;
+  font-weight: 450;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* TYPOGRAPHY UTILITIES - 50% MEDIUM NORMAL WEIGHT */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+  font-weight: 450;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+
+
+/* CUSTOM SELECTION & SCROLLBAR */
+::selection {
+  background-color: var(--jpm-blue);
+  color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
