@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCubeGlobal | Digital Excellence — Performance Marketing, Web Development & Creative Design</title>
+  <meta name="description" content="MCubeGlobal is a full-service digital growth agency delivering Performance Marketing, Web Development, Creative Design, and Brand Strategy to businesses worldwide.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jpm: {
+              dark: '#111827',
+              navy: '#0B192C',
+              blue: '#00529B',
+              hoverblue: '#003D75',
+              softblue: '#9BCBEB',
+              softbluehover: '#82BCE0',
+              brown: '#8C5229',
+              brownlight: '#A06334',
+              gold: '#8C5229',
+              goldlight: '#A06334',
+              bglight: '#FFFFFF',
+              bggray: '#F8FAFC',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            serif: ['"Mofista"', '"Judson"', '"Cinzel"', 'Georgia', 'serif'],
+            display: ['"Mofista"', '"Cinzel"', '"Playfair Display"', '"Judson"', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', '"SF Pro"', 'system-ui', '"Noto Sans KR"', '"Open Sans"', 'sans-serif'],
+            notable: ['"Notable"', 'sans-serif'],
+            noto: ['"Noto Sans KR"', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          fontSize: {
+            'xs': ['13px', { lineHeight: '1.5' }],
+            'sm': ['15px', { lineHeight: '1.55' }],
+            'base': ['17px', { lineHeight: '1.6' }],
+            'lg': ['19px', { lineHeight: '1.6' }],
+            'xl': ['21px', { lineHeight: '1.5' }],
+            '2xl': ['25px', { lineHeight: '1.4' }],
+            '3xl': ['31px', { lineHeight: '1.3' }],
+            '4xl': ['37px', { lineHeight: '1.2' }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Mofista Display Fallback Stack & SF Pro iPhone Integration -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Judson:ital,wght@0,400;0,700;1,400&family=Notable&family=Noto+Sans+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body class="bg-white text-[#111111] font-sans antialiased selection:bg-jpm-blue selection:text-white overflow-x-hidden font-normal">
+
+    
+    <!-- TOP BROWN ACCENT LINE -->
+    <div class="h-[4px] bg-[#8C5229] w-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- LEFT: MCubeGlobal LOGO -->
+      <a href="index.html" class="flex items-center group shrink-0">
+        <span class="font-display font-bold text-2xl sm:text-[30px] text-[#111111] tracking-tight group-hover:text-jpm-blue transition-colors">
+          MCubeGlobal
+        </span>
+      </a>
+
+      <!-- RIGHT: CONNECT PILL CTA, SEARCH ICON & HAMBURGER MENU ICON -->
+      <div class="flex items-center gap-3 sm:gap-6">
+        
+        <!-- FUNCTIONAL SEARCH BUTTON -->
+        <button id="openSearchBtnNav" class="p-2 text-[#111111] hover:text-jpm-blue transition-colors" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass text-xl sm:text-2xl"></i>
+        </button>
+
+        <!-- HAMBURGER MENU BUTTON -->
+        <button id="hamburgerBtn" class="p-2 text-[#111111] hover:text-jpm-blue transition-colors" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars text-2xl sm:text-3xl"></i>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- INTERACTIVE FULLSCREEN SEARCH OVERLAY MODAL -->
+  <div id="searchModal" class="fixed inset-0 bg-white/98 z-[1000] hidden flex-col transition-all duration-300 overflow-y-auto">
+    <div class="h-[4px] bg-[#8C5229] w-full"></div>
+    
+    <!-- SEARCH MODAL HEADER -->
+    <div class="max-w-5xl mx-auto w-full px-4 sm:px-8 py-6 flex items-center justify-between border-b border-slate-200">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-magnifying-glass text-2xl text-[#8C5229]"></i>
+        <span class="font-display text-xl font-bold text-[#111111]">Search MCubeGlobal</span>
+      </div>
+      <button id="closeSearchBtn" class="w-10 h-10 border border-slate-300 hover:border-slate-800 rounded flex items-center justify-center text-slate-800 transition-colors" aria-label="Close Search">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+    </div>
+
+    <!-- SEARCH INPUT BODY -->
+    <div class="max-w-5xl mx-auto w-full px-4 sm:px-8 py-8 space-y-6">
+      
+      <!-- SEARCH INPUT FIELD -->
+      <div class="relative">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search performance marketing, web dev, graphic design, calculator..." 
+          class="w-full text-xl sm:text-2xl font-sans font-normal text-[#111111] placeholder:text-slate-400 border-b-2 border-[#8C5229] py-3 pr-12 bg-transparent outline-none focus:border-jpm-blue transition-colors"
+          autofocus
+        >
+        <button id="clearSearchInputBtn" class="absolute right-3 top-4 text-slate-400 hover:text-slate-700 hidden">
+          <i class="fa-solid fa-circle-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- QUICK SUGGESTION TAGS -->
+      <div class="flex flex-wrap items-center gap-2 text-xs font-sans text-slate-600 font-medium">
+        <span class="font-semibold text-slate-500 mr-1">Popular searches:</span>
+        <button class="search-tag-btn px-3 py-1 bg-slate-100 hover:bg-[#4A90D9] hover:text-white rounded-full transition-colors">Performance Marketing</button>
+        <button class="search-tag-btn px-3 py-1 bg-slate-100 hover:bg-[#4A90D9] hover:text-white rounded-full transition-colors">Full-Stack Web Dev</button>
+        <button class="search-tag-btn px-3 py-1 bg-slate-100 hover:bg-[#4A90D9] hover:text-white rounded-full transition-colors">Graphic Design</button>
+        <button class="search-tag-btn px-3 py-1 bg-slate-100 hover:bg-[#4A90D9] hover:text-white rounded-full transition-colors">Brand Strategy</button>
+        <button class="search-tag-btn px-3 py-1 bg-slate-100 hover:bg-[#4A90D9] hover:text-white rounded-full transition-colors">Calculator</button>
+      </div>
+
+      <!-- SEARCH RESULTS CONTAINER -->
+      <div id="searchResultsContainer" class="pt-4 space-y-3">
+        <p class="text-sm text-slate-500 font-sans italic font-normal">Type keywords above to search across all works, reports, and calculators...</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FULLSCREEN MEGAMENU OVERLAY -->
+  <div id="mobileMenu" class="fixed inset-0 bg-white z-[100] hidden overflow-y-auto">
+    <div class="h-[4px] bg-[#8C5229] w-full"></div>
+    
+    <!-- MEGAMENU HEADER -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between border-b border-slate-100">
+      <a href="index.html" class="font-display font-bold text-2xl sm:text-[30px] text-[#111111]">
+        MCubeGlobal
+      </a>
+
+      <div class="flex items-center gap-4 sm:gap-6">
+        <button id="openSearchBtnMegamenu" class="p-2 text-[#111111] hover:text-jpm-blue" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass text-lg sm:text-xl"></i>
+        </button>
+        <button id="closeMobileMenuBtn" class="p-2 text-[#111111] hover:text-jpm-blue transition-colors" aria-label="Close Menu">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MEGAMENU BODY -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-10 lg:py-16">
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- LEFT COLUMN: NAVIGATION LINKS -->
+        <div class="lg:col-span-7 flex flex-col space-y-1">
+          <a href="#overview" class="mobile-nav-link font-display text-3xl sm:text-4xl text-[#111111] font-bold hover:text-jpm-blue py-4 border-b border-slate-200 transition-colors flex items-center justify-between">
+            <span>Overview</span>
+            <i class="fa-solid fa-chevron-right text-base text-slate-400"></i>
+          </a>
+          <a href="#featured-studio" class="mobile-nav-link font-display text-3xl sm:text-4xl text-[#111111] font-bold hover:text-jpm-blue py-4 border-b border-slate-200 transition-colors flex items-center justify-between">
+            <span>Headquarters</span>
+            <i class="fa-solid fa-chevron-right text-base text-slate-400"></i>
+          </a>
+          <a href="#works" class="mobile-nav-link font-display text-3xl sm:text-4xl text-[#111111] font-bold hover:text-jpm-blue py-4 border-b border-slate-200 transition-colors flex items-center justify-between">
+            <span>My 4 Works</span>
+            <i class="fa-solid fa-chevron-right text-base text-slate-400"></i>
+          </a>
+          <a href="#track-record" class="mobile-nav-link font-display text-3xl sm:text-4xl text-[#111111] font-bold hover:text-jpm-blue py-4 border-b border-slate-200 transition-colors flex items-center justify-between">
+            <span>Track Record</span>
+            <i class="fa-solid fa-chevron-right text-base text-slate-400"></i>
+          </a>
+          <a href="#calculator" class="mobile-nav-link font-display text-3xl sm:text-4xl text-[#111111] font-bold hover:text-jpm-blue py-4 border-b border-slate-200 transition-colors flex items-center justify-between">
+            <span>Capital Calculator</span>
+            <i class="fa-solid fa-chevron-right text-base text-slate-400"></i>
+          </a>
+          <a href="#contact" class="mobile-nav-link font-display text-3xl sm:text-4xl text-[#111111] font-bold hover:text-jpm-blue py-4 border-b border-slate-200 transition-colors flex items-center justify-between">
+            <span>Connect</span>
+            <i class="fa-solid fa-chevron-right text-base text-slate-400"></i>
+          </a>
+
+          <!-- CONNECT BUTTON -->
+          <div class="pt-6">
+            <button id="openAuditModalBtnNav" class="whitespace-nowrap w-full sm:w-auto px-8 py-3.5 bg-white border-2 border-[#8C5229] hover:bg-[#8C5229] text-[#8C5229] hover:text-white font-sans font-semibold text-base sm:text-lg rounded-full transition-colors inline-flex items-center justify-center gap-2 shadow-xs">
+              <span>Connect</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: LATEST NEWS FEATURED BEIGE BOX -->
+        <div class="lg:col-span-5 bg-[#F7F5F0] p-6 sm:p-8 rounded-sm border border-slate-200/70 space-y-5">
+          <h3 class="font-sans font-semibold text-xl text-[#111111]">Latest news</h3>
+          
+          <div class="w-full h-44 sm:h-52 bg-slate-900 rounded overflow-hidden relative">
+            <img src="image1.png" onerror="this.onerror=null; this.src='first.png';" alt="MCubeGlobal Featured" class="w-full h-full object-cover object-[center_28%]">
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="font-sans font-medium text-lg text-[#111111] leading-snug">
+              2026 Growth Engineering & Capital Report
+            </h4>
+            <a href="#overview" class="mobile-nav-link text-[#8C5229] font-sans font-semibold text-sm inline-flex items-center gap-1.5 hover:underline">
+              <span>Learn more</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: HERO CAROUSEL (HIDDEN BUTTON TOP LINE) -->
+  <section id="overview" class="bg-white pt-0 pb-6 sm:pb-10 border-b border-jpm-border relative overflow-visible">
+    
+    <!-- 100% FULL WIDTH HERO PHOTO BANNER -->
+    <div class="relative bg-black w-full overflow-hidden h-48 sm:h-60 lg:h-68 flex items-center justify-center">
+      <img 
+        id="heroSlideImage"
+        src="image1.png" 
+        onerror="this.onerror=null; this.src='first.png';" 
+        alt="MCubeGlobal — Digital Growth Agency" 
+        class="w-full h-full object-cover object-[center_28%] opacity-90 scale-105"
+      >
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20 pointer-events-none"></div>
+    </div>
+
+    <!-- OVERLAPPING WHITE CARD -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 w-full">
+      <div id="heroSlideCard" class="relative z-20 bg-white -mt-10 sm:-mt-14 lg:-mt-16 pt-6 sm:pt-10 px-5 sm:px-10 pb-6 sm:pb-8 mx-auto w-full flex flex-col right-4">
+        
+        <!-- FIXED TOP CONTENT CONTAINER -->
+        <div id="heroContentTrack" class="flex flex-col justify-start">
+          <!-- NUMBER ACCENT (01) -->
+          <div id="slideNumber" class="font-display text-[45px] sm:text-[54px] font-bold text-[#8C5229] leading-none tracking-normal mb-3">
+            01
+          </div>
+
+          <!-- MAIN HEADING -->
+          <h1 id="slideTitle" class="font-display text-[29px] sm:text-[38px] lg:text-[45px] font-bold text-[#111111] tracking-[0.01em] leading-[1.18] mb-4">
+            Grow Your Business with Digital Excellence
+          </h1>
+
+          <!-- QUOTE BLOCK -->
+          <blockquote id="slideQuote" class="text-justify font-sans text-[16px] sm:text-[19px] lg:text-[21px] font-medium text-slate-800 leading-[1.65] tracking-[0.01em] mb-4">
+            From eye-catching designs to powerful marketing campaigns and scalable web solutions, we help businesses attract more customers, increase conversions, and build a lasting online presence.
+          </blockquote>
+        </div>
+
+        <!-- LOCKED BOTTOM FOOTER CONTAINER (LINE HIDDEN ABOVE BUTTON) -->
+        <div class="pt-2 mt-2">
+          
+          <!-- RICH DEEP JPMORGAN BLUE PILL CTA BUTTON -->
+          <div class="mb-4">
+            <button id="slideCta" class="whitespace-nowrap w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-3.5 bg-[#4A90D9] hover:bg-[#003D75] text-white font-sans font-semibold text-[15px] sm:text-[17px] rounded-full transition-colors inline-flex items-center justify-center gap-2 sm:gap-2.5 shadow-xs text-center h-12">
+              <span id="slideCtaText">Explore Our Services</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+
+          <!-- CIRCULAR CAROUSEL CONTROLS -->
+          <div class="flex items-center gap-4 pt-1">
+            <button id="prevSlideBtn" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-slate-300 hover:border-slate-800 hover:bg-slate-50 flex items-center justify-center text-slate-700 transition-colors" aria-label="Previous Slide">
+              <i class="fa-solid fa-arrow-left text-xs"></i>
+            </button>
+            
+            <span id="carouselCounter" class="font-sans font-medium text-[16px] sm:text-[18px] text-slate-600 tracking-wider mx-1">
+              1/4
+            </span>
+
+            <button id="nextSlideBtn" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-slate-300 hover:border-slate-800 hover:bg-slate-50 flex items-center justify-center text-slate-700 transition-colors" aria-label="Next Slide">
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FEATURED HEADQUARTERS -->
+  <section id="featured-studio" class="py-10 sm:py-16 bg-white relative overflow-visible">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- PHOTO BACKGROUND CONTAINER -->
+      <div class="relative  overflow-hidden w-full bg-black flex  left-6">
+        <img src="new.png" alt="MCubeGlobal — Digital Growth Agency" class="w-full h-auto object-cover" >
+      </div>
+
+      <!-- CONTENT CARD -->
+      <div class="relative z-20 bg-white mt-8 pt-6 sm:pt-10 px-5 sm:px-10 pb-8 shadow-xs">
+        
+        <h2 class="font-display text-[29px] sm:text-[38px] lg:text-[45px] font-bold text-[#111111] tracking-[0.01em] leading-[1.18] mb-5">
+          Where Vision Meets Execution
+        </h2>
+
+        <p class="text-justify font-sans text-[16px] sm:text-[18px] text-slate-700 leading-[1.65] tracking-[0.01em] font-medium mb-8">
+          From the first spark of an idea to a successful digital presence, we turn vision into reality with precision and purpose. By combining creativity, technology, and performance-driven strategy, we build solutions that inspire confidence, create impact, and accelerate sustainable growth.
+        </p>
+
+        <!-- RICH BROWN ACCENT OUTLINE PILL BUTTON -->
+        <div>
+          <button id="openAuditModalBtnStudio" class="whitespace-nowrap w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-3.5 bg-white border-2 border-[#8C5229] hover:bg-[#8C5229] hover:text-white text-[#8C5229] font-sans font-semibold text-[16px] sm:text-[18px] rounded-full transition-all inline-flex items-center justify-center gap-2.5 shadow-xs">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: SERVING WITH PURPOSE -->
+  <section id="serving-purpose" class="py-10 sm:py-16 bg-white border-b border-jpm-border relative overflow-visible">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- PHOTO BACKGROUND CONTAINER -->
+      <div class="relative right-4 overflow-hidden w-full bg-black flex shadow-xs">
+        <img src="new1.png" alt="Serving with Purpose" class="w-full h-auto object-cover">
+      </div>
+
+      <!-- CONTENT CARD -->
+      <div class="relative z-20 bg-white mt-8 pt-6 sm:pt-10 px-5 sm:px-10 pb-8 shadow-xs">
+        
+        <h2 class="font-display text-[29px] sm:text-[38px] lg:text-[45px] font-bold text-[#111111] tracking-[0.01em] leading-[1.18] mb-5">
+          Serving with Purpose
+        </h2>
+
+        <p class="text-justify font-sans text-[16px] sm:text-[18px] text-slate-700 leading-[1.65] tracking-[0.01em] font-medium mb-8">
+          Our purpose goes beyond delivering projects. We partner with businesses to understand their goals, overcome challenges, and create meaningful digital solutions that drive measurable results and long-term success.
+        </p>
+
+        <!-- RICH BROWN ACCENT OUTLINE PILL BUTTON -->
+        <div>
+          <button class="open-audit-btn whitespace-nowrap w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-3.5 bg-white border-2 border-[#8C5229] hover:bg-[#8C5229] hover:text-white text-[#8C5229] font-sans font-semibold text-[16px] sm:text-[18px] rounded-full transition-all inline-flex items-center justify-center gap-2.5 shadow-xs">
+            <span>Work With Us</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: MY 4 CORE WORKS -->
+  <section id="works" class="py-16 sm:py-20 bg-jpm-bggray border-b border-jpm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl space-y-3 mb-12">
+        <span class="font-sans text-xs sm:text-sm font-semibold text-jpm-blue uppercase tracking-widest">MY 4 CORE WORKS</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#111111]">Complete End-to-End Execution</h2>
+        <p class="text-slate-600 leading-relaxed text-base font-sans font-medium">
+          <span class="font-display font-bold text-[#111111]">MCubeGlobal</span> combines 4 specialized disciplines into one seamless growth engine:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Work 1 -->
+        <div class="relative bg-white border border-jpm-border hover:shadow-lg p-8 rounded-lg transition-all space-y-4 pt-10 overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+            <img src="image1.png" onerror="this.onerror=null; this.src='first.png';" alt="Performance Marketing" class="w-full h-full object-cover">
+          </div>
+          <div class="absolute -top-4 left-6 bg-[#8C5229] text-white px-4 py-1 font-display text-lg font-bold rounded shadow-xs">
+            01
+          </div>
+          <div class="flex justify-between items-center pt-2">
+            <span class="px-3 py-1 bg-blue-50 text-jpm-blue font-sans text-xs font-semibold rounded uppercase">PERFORMANCE MARKETING</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-[#111111]">Paid Media Scaling & Capital Allocation</h3>
+          <p class="text-slate-600 text-sm leading-relaxed font-sans font-medium">
+            Managing paid media across Meta, Google Search, LinkedIn ABM, and Programmatic DSPs through strict financial modeling. Lowering blended CAC while scaling incremental ROAS.
+          </p>
+          <div class="pt-2">
+            <button class="open-audit-btn whitespace-nowrap px-6 py-2.5 bg-[#4A90D9] hover:bg-[#003D75] text-white font-semibold text-xs sm:text-sm rounded-full transition-colors inline-flex items-center gap-1.5 font-sans shadow-xs">
+              <span>Connect → Paid Media</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Work 2 -->
+        <div class="relative bg-white border border-jpm-border hover:shadow-lg p-8 rounded-lg transition-all space-y-4 pt-10 overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+            <img src="image2.png" onerror="this.onerror=null; this.src='first.png';" alt="Full-Stack Web Dev" class="w-full h-full object-cover">
+          </div>
+          <div class="absolute -top-4 left-6 bg-[#8C5229] text-white px-4 py-1 font-display text-lg font-bold rounded shadow-xs">
+            02
+          </div>
+          <div class="flex justify-between items-center pt-2">
+            <span class="px-3 py-1 bg-blue-50 text-jpm-blue font-sans text-xs font-semibold rounded uppercase">FULL-STACK WEB DEV</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-[#111111]">Full-Stack Web Engineering & CAPI Telemetry</h3>
+          <p class="text-slate-600 text-sm leading-relaxed font-sans font-medium">
+            Engineering high-speed enterprise web portals, custom landing pages, and server-side tracking pipelines (Cloud GTM / CAPI). Achieving 99.98% event match accuracy.
+          </p>
+          <div class="pt-2">
+            <button class="open-audit-btn whitespace-nowrap px-6 py-2.5 bg-[#4A90D9] hover:bg-[#003D75] text-white font-semibold text-xs sm:text-sm rounded-full transition-colors inline-flex items-center gap-1.5 font-sans shadow-xs">
+              <span>Connect → Web Code</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Work 3 -->
+        <div class="relative bg-white border border-jpm-border hover:shadow-lg p-8 rounded-lg transition-all space-y-4 pt-10 overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+            <img src="image3.png" onerror="this.onerror=null; this.src='first.png';" alt="Graphic Design" class="w-full h-full object-cover">
+          </div>
+          <div class="absolute -top-4 left-6 bg-[#8C5229] text-white px-4 py-1 font-display text-lg font-bold rounded shadow-xs">
+            03
+          </div>
+          <div class="flex justify-between items-center pt-2">
+            <span class="px-3 py-1 bg-blue-50 text-jpm-blue font-sans text-xs font-semibold rounded uppercase">GRAPHIC DESIGN</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-[#111111]">Institutional Graphic Design & UI/UX Systems</h3>
+          <p class="text-slate-600 text-sm leading-relaxed font-sans font-medium">
+            Crafting prestigious corporate visual design systems, conversion-driven UI/UX layouts, ad creative sets, and brand collateral matching JPMorgan Chase visual authority.
+          </p>
+          <div class="pt-2">
+            <button class="open-audit-btn whitespace-nowrap px-6 py-2.5 bg-[#4A90D9] hover:bg-[#003D75] text-white font-semibold text-xs sm:text-sm rounded-full transition-colors inline-flex items-center gap-1.5 font-sans shadow-xs">
+              <span>Connect → UI/UX Design</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Work 4 -->
+        <div class="relative bg-white border border-jpm-border hover:shadow-lg p-8 rounded-lg transition-all space-y-4 pt-10 overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+            <img src="image4.png" onerror="this.onerror=null; this.src='first.png';" alt="Brand Marketing" class="w-full h-full object-cover">
+          </div>
+          <div class="absolute -top-4 left-6 bg-[#8C5229] text-white px-4 py-1 font-display text-lg font-bold rounded shadow-xs">
+            04
+          </div>
+          <div class="flex justify-between items-center pt-2">
+            <span class="px-3 py-1 bg-blue-50 text-jpm-blue font-sans text-xs font-semibold rounded uppercase">BRAND MARKETING</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-[#111111]">Brand Strategy & Enterprise Copywriting</h3>
+          <p class="text-slate-600 text-sm leading-relaxed font-sans font-medium">
+            Formulating category-defining brand positioning, value proposition frameworks, and high-converting enterprise copy aligned with buyer psychology and compliance.
+          </p>
+          <div class="pt-2">
+            <button class="open-audit-btn whitespace-nowrap px-6 py-2.5 bg-[#4A90D9] hover:bg-[#003D75] text-white font-semibold text-xs sm:text-sm rounded-full transition-colors inline-flex items-center gap-1.5 font-sans shadow-xs">
+              <span>Connect → Brand Copy</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: TRACK RECORD -->
+  <section id="track-record" class="py-16 bg-white border-b border-jpm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        
+        <div class="border-l-2 border-[#8C5229] pl-4 space-y-1">
+          <div class="font-mono text-3xl sm:text-4xl font-bold text-[#111111]">$350M+</div>
+          <div class="font-display text-sm font-semibold text-[#8C5229]">Media Capital Managed</div>
+          <p class="text-xs text-slate-500 font-sans font-medium">Fiduciary paid media deployment.</p>
+        </div>
+
+        <div class="border-l-2 border-emerald-600 pl-4 space-y-1">
+          <div class="font-mono text-3xl sm:text-4xl font-bold text-emerald-700">-34.8%</div>
+          <div class="font-display text-sm font-semibold text-[#8C5229]">Blended CAC Reduction</div>
+          <p class="text-xs text-slate-500 font-sans font-medium">Average acquisition cost savings.</p>
+        </div>
+
+        <div class="border-l-2 border-[#8C5229] pl-4 space-y-1">
+          <div class="font-mono text-3xl sm:text-4xl font-bold text-[#111111]">$1.4B+</div>
+          <div class="font-display text-sm font-semibold text-[#8C5229]">Verified Pipeline</div>
+          <p class="text-xs text-slate-500 font-sans font-medium">High-intent client pipeline value.</p>
+        </div>
+
+        <div class="border-l-2 border-[#8C5229] pl-4 space-y-1">
+          <div class="font-mono text-3xl sm:text-4xl font-bold text-jpm-blue">99.98%</div>
+          <div class="font-display text-sm font-semibold text-[#8C5229]">CAPI Match Rate</div>
+          <p class="text-xs text-slate-500 font-sans font-medium">Server-side telemetry match.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CALCULATOR -->
+  <section id="calculator" class="py-20 bg-jpm-bggray border-b border-jpm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="font-sans text-xs font-semibold text-jpm-blue uppercase tracking-widest">CAPITAL EFFICIENCY EVALUATION</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#111111]">Audit Your Growth & Telemetry Engine</h2>
+          <p class="text-slate-600 leading-relaxed text-base font-sans font-medium">
+            Enterprise media budgets frequently suffer from 25% to 40% hidden capital drag due to signal loss, non-converting audience decay, and unoptimized attribution logic.
+          </p>
+          <button id="openAuditModalBtnCalc" class="whitespace-nowrap px-6 sm:px-8 py-3.5 bg-[#4A90D9] hover:bg-[#003D75] text-white font-semibold text-sm sm:text-base rounded-full transition-colors inline-flex items-center gap-2 shadow-xs font-sans">
+            <span>Connect with <strong class="font-display font-bold">MCubeGlobal</strong></span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+
+        <div class="lg:col-span-5 bg-jpm-dark text-white rounded-lg p-7 shadow-xl space-y-6">
+          <h3 class="font-display text-xl font-bold border-b border-slate-700 pb-3 flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-[#A06334]"></i> Capital Drag Calculator
+          </h3>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-1">
+                <span>Monthly Paid Media Capital:</span>
+                <span id="heroBudgetValue" class="text-[#A06334] font-bold">$250,000 / mo</span>
+              </div>
+              <input type="range" id="heroBudgetSlider" min="50000" max="2000000" step="50000" value="250000" class="w-full h-1.5 bg-slate-800 rounded appearance-none cursor-pointer accent-[#A06334]">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-1">
+                <span>Current Blended CAC:</span>
+                <span id="heroCacValue" class="text-[#A06334] font-bold">$450 / customer</span>
+              </div>
+              <input type="range" id="heroCacSlider" min="100" max="1500" step="25" value="450" class="w-full h-1.5 bg-slate-800 rounded appearance-none cursor-pointer accent-[#A06334]">
+            </div>
+          </div>
+
+          <div class="bg-black/50 p-4 rounded border border-slate-800 space-y-2 font-mono text-xs">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Annual Budget Drag Saved:</span>
+              <strong id="heroDragVal" class="text-[#A06334] font-bold text-base">$1,044,000</strong>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Optimized Blended CAC:</span>
+              <strong id="heroOptCacVal" class="text-white font-bold text-sm">$293.40</strong>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Target iROAS Multiplier:</span>
+              <strong id="heroIroasVal" class="text-emerald-400 font-bold text-sm">4.15x</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT MODAL -->
+  <div id="auditModal" class="fixed inset-0 bg-jpm-dark/80 backdrop-blur-sm z-[999] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-lg border border-jpm-border max-w-lg w-full p-8 relative shadow-2xl space-y-6">
+      <button id="closeAuditModalBtn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-2xl">&times;</button>
+      
+      <div class="space-y-2">
+        <span class="text-[11px] font-mono text-jpm-blue font-bold tracking-widest uppercase">[ DIRECT PRINCIPAL ENGAGEMENT ]</span>
+        <h3 class="font-display text-2xl font-bold text-[#111111]">Connect with MCubeGlobal</h3>
+        <p class="text-xs text-slate-600 font-sans font-medium">Schedule a consultation with our team to audit your paid ads, website, graphic design, or brand strategy.</p>
+      </div>
+
+      <form id="auditForm" class="space-y-4 text-xs font-sans">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="auditName" class="block font-semibold text-slate-700 mb-1">Full Name *</label>
+            <input type="text" id="auditName" required class="w-full border border-slate-300 rounded p-2.5 outline-none focus:border-jpm-blue font-normal">
+          </div>
+          <div>
+            <label for="auditEmail" class="block font-semibold text-slate-700 mb-1">Email Address *</label>
+            <input type="email" id="auditEmail" required class="w-full border border-slate-300 rounded p-2.5 outline-none focus:border-jpm-blue font-normal">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="auditEntity" class="block font-semibold text-slate-700 mb-1">Primary Pillar *</label>
+            <select id="auditEntity" required class="w-full border border-slate-300 rounded p-2.5 outline-none focus:border-jpm-blue bg-white font-normal">
+              <option value="performance">Performance Marketing</option>
+              <option value="webdev">Full-Stack Web Dev</option>
+              <option value="design">Graphic Design & UI/UX</option>
+              <option value="brand">Brand Marketing Strategy</option>
+              <option value="all" selected>Complete 360° Engine</option>
+            </select>
+          </div>
+          <div>
+            <label for="auditBudget" class="block font-semibold text-slate-700 mb-1">Monthly Media Budget *</label>
+            <select id="auditBudget" required class="w-full border border-slate-300 rounded p-2.5 outline-none focus:border-jpm-blue bg-white font-normal">
+              <option value="100k-250k">$100k – $250k / mo</option>
+              <option value="250k-500k" selected>$250k – $500k / mo</option>
+              <option value="500k-1m">$500k – $1M / mo</option>
+              <option value="1m+">$1M+ / mo</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="auditChallenge" class="block font-semibold text-slate-700 mb-1">Project Message / Goal</label>
+          <textarea id="auditChallenge" rows="3" class="w-full border border-slate-300 rounded p-2.5 outline-none focus:border-jpm-blue font-normal" placeholder="Describe your paid ads, website code, graphic design, or brand goals..."></textarea>
+        </div>
+
+        <div class="text-[12px] text-slate-500 flex items-center gap-2 font-medium">
+          <i class="fa-solid fa-lock text-jpm-blue"></i>
+          <span>100% NDA Protected. You work directly with the MCubeGlobal team.</span>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-[#4A90D9] hover:bg-[#003D75] text-white font-semibold text-xs uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2 font-sans shadow-xs">
+          <span>Connect Now</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-jpm-dark text-slate-400 text-xs py-12 font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <span class="font-display font-bold text-2xl text-white">MCubeGlobal</span>
+          <p class="text-slate-400 text-xs mt-1 font-sans font-normal">Full-Service Digital Growth Agency — Marketing · Design · Development</p>
+        </div>
+        <div class="flex items-center gap-6 font-medium text-slate-300 font-sans">
+          <a href="#overview" class="hover:text-white transition-colors">Overview</a>
+          <a href="#featured-studio" class="hover:text-white transition-colors">Headquarters</a>
+          <a href="#works" class="hover:text-white transition-colors">My 4 Works</a>
+          <a href="#track-record" class="hover:text-white transition-colors">Track Record</a>
+          <a href="#calculator" class="hover:text-white transition-colors">Calculator</a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] font-sans font-normal">
+        <p>© 2026 MCubeGlobal. All Rights Reserved.</p>
+        <div class="flex items-center gap-4 text-slate-400 font-mono">
+          <span><i class="fa-solid fa-building"></i> <strong class="font-display font-bold text-slate-300">MCubeGlobal</strong></span>
+          <span>•</span>
+          <span><i class="fa-solid fa-lock"></i> NDA Protected</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
